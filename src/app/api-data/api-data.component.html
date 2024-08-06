@@ -1,0 +1,16 @@
+<!-- api-data.component.html -->
+<h2 >Astronomy Pictures of the Day</h2>
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+<div *ngIf="apodData.length">
+  <div *ngFor="let apod of apodData; let i = index" [ngClass]="{'reverse': i % 2 !== 0}" class="apod-card">
+    <div class="apod-image">
+      <img [src]="apod.url" alt="{{ apod.title }}" />
+    </div>
+    <div class="apod-content">
+      <h3>{{ apod.title }}</h3>
+      <p>{{ apod.explanation }}</p>
+      <p><strong>Date:</strong> {{ apod.date }}</p>
+    </div>
+  </div>
+</div>

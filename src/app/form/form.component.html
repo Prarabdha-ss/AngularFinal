@@ -1,0 +1,91 @@
+<div class="card">
+  <h1>APOD Interaction Form</h1>
+  <form [formGroup]="interactionForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" />
+      <div
+        class="error"
+        *ngIf="
+          interactionForm.controls['name'].invalid &&
+          interactionForm.controls['name'].touched
+        "
+      >
+        Name is required.
+      </div>
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" />
+      <div
+        class="error"
+        *ngIf="
+          interactionForm.controls['email'].invalid &&
+          interactionForm.controls['email'].touched
+        "
+      >
+        Enter a valid email.
+      </div>
+    </div>
+
+    <div>
+      <label for="favoriteImage">Select Your Favorite Image:</label>
+      <select id="favoriteImage" formControlName="favoriteImage">
+        <option *ngFor="let image of apodData" [value]="image.title">
+          {{ image.title }}
+        </option>
+      </select>
+      <div
+        class="error"
+        *ngIf="
+          interactionForm.controls['favoriteImage'].invalid &&
+          interactionForm.controls['favoriteImage'].touched
+        "
+      >
+        Please select an image.
+      </div>
+    </div>
+
+    <div>
+      <label for="voteTopic">Vote for Future Image Topics:</label>
+      <div id="voteTopic" class="voting-options">
+        <!-- Pre-defined topics for voting -->
+        <label *ngFor="let topic of votingTopics" [attr.for]="'topic' + topic.id">
+          <input
+            type="radio"
+            [id]="'topic' + topic.id"
+            [value]="topic.name"
+            formControlName="voteTopic"
+          />
+          {{ topic.name }}
+        </label>
+      </div>
+      <div
+        class="error"
+        *ngIf="
+          interactionForm.controls['voteTopic'].invalid &&
+          interactionForm.controls['voteTopic'].touched
+        "
+      >
+        Please select a topic.
+      </div>
+    </div>
+
+    <div>
+      <label for="comment">Comments:</label>
+      <textarea id="comment" formControlName="comment"></textarea>
+      <div
+        class="error"
+        *ngIf="
+          interactionForm.controls['comment'].invalid &&
+          interactionForm.controls['comment'].touched
+        "
+      >
+        Please provide a comment.
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="interactionForm.invalid">Submit</button>
+  </form>
+</div>

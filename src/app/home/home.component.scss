@@ -1,0 +1,56 @@
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  text-align: center;
+  color: #333;
+}
+
+p {
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 20px; /* Center the paragraph and add bottom margin */
+}
+
+.home-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  gap: 20px; /* Add space between the description and image */
+  flex-wrap: wrap; /* Make layout responsive */
+  padding: 0 20px;
+}
+
+.home-description {
+  flex: 1;
+  max-width: 500px; /* Limit the width of the description */
+}
+
+.home-description h2 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  color: #007bff;
+}
+
+.home-description p {
+  text-align: left;
+  color: #666;
+}
+
+.home-image {
+  flex: 1;
+  max-width: 500px; /* Limit the width of the image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

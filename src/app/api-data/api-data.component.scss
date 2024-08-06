@@ -1,0 +1,73 @@
+/* styles.css or api-data.component.css */
+
+.apod-card {
+  display: flex;
+  flex-direction: row; /* Default to row layout */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.apod-card.reverse {
+  flex-direction: row-reverse; /* Reverse the order for alternating effect */
+}
+
+.apod-image {
+  flex: 1; /* Allow image container to take 1 part of the available space */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+  overflow: hidden;
+  max-width: 100%; /* Ensure it doesn't grow beyond the container */
+}
+
+.apod-image img {
+  width: 100%; /* Allow the image to take full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  object-fit: cover; /* Cover the container proportionally */
+}
+
+.apod-content {
+  flex: 2; /* Allow content to take 2 parts of the available space */
+  padding: 15px;
+  background: linear-gradient(135deg, #bbdefb, #d1c4e9); /* Sky Blue to Light Lilac */
+  color: #333; /* Dark text for readability */
+}
+
+h3 {
+  margin-top: 0;
+}
+
+p {
+  margin: 5px 0;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+  .apod-card {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+  }
+
+  .apod-content {
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .apod-image {
+    height: 300px; /* Set a fixed height for the image container */
+  }
+
+  .apod-image img {
+    object-fit: contain; /* Ensure the image fits nicely */
+  }
+}
+
+@media (max-width: 480px) {
+  .apod-content {
+    font-size: 0.9rem; /* Adjust font size for very small screens */
+  }
+}
